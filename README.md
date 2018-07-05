@@ -7,6 +7,8 @@ article published on Technology Conversations article.
 The graphical representation is based on [this
 repository](https://github.com/stianeikeland/rover-clj).
 
+We implemented this Kata in Clojure for our [User Group](https://www.meetup.com/de-DE/Dusseldorf-Clojure-Meetup/). You can play around with it in [this repository](https://github.com/clojuredus/clojure-coding-dojo/tree/master/rover).
+
 ## Description
 
 In this Kata, we will develop an API to control a Mars Rover around a map. A map
