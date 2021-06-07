@@ -80,9 +80,9 @@ Where do you want to move? Available commands: l, r, f, b, q
 
 Currently, the rover is faced north and located in the middle of the map.
 
-Now, it's time to implement `RoverControl.execute` to complete the game.
+Now, it's time to implement `RoverControl.control` to complete the game.
 
 ## Hints
 
-* Start with a failing test. This is a good kata to practice TDD.
-* Make your tests really small in the beginning. Start with an empty String, then with Strings containing only one character. After all cases have been fulfilled, start with multiple commands in the string.
+* Start with a failing test. This is a good Kata to practice TDD.
+* Make your tests small in the beginning. Start with an empty String, then with Strings containing only one character. After all cases have been fulfilled, start with multiple commands in the string.

@@ -15,7 +15,7 @@
 (defrecord Game [world direction position]
   IGame
   (execute [this input]
-    (let [jgame (RoverControl/execute this input)]
+    (let [jgame (RoverControl/control this input)]
       (->Game (vec (map vec (.getWorld jgame)))
               (.getRoverDirection jgame)
               [(.getRoverX jgame) (.getRoverY jgame)])))
@@ -26,12 +26,13 @@
 
 ;; ----------------------------------------------------------------------------
 
-(def terrain {"X"     (style "#" :yellow)
-              "_"     " "
-              "north" (style "Λ" :red :blink-slow :bright)
-              "south" (style "V" :red :blink-slow :bright)
-              "west"  (style "<" :red :blink-slow :bright)
-              "east"  (style ">" :red :blink-slow :bright)})
+(def ^:private terrain
+  {"X"     (style "#" :yellow)
+   "_"     " "
+   "north" (style "Λ" :red :blink-slow :bright)
+   "south" (style "V" :red :blink-slow :bright)
+   "west"  (style "<" :red :blink-slow :bright)
+   "east"  (style ">" :red :blink-slow :bright)})
 
 (defn- print-map [game]
   (let [world (assoc-in (:world game) (:position game) (:direction game))]
@@ -60,7 +61,7 @@
      :direction "north"
      :position  start-pos}))
 
-(defn play-game []
+(defn- play-game []
   (play (new-game 24 80)))
 
 (defn -main []

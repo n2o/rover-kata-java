@@ -1,8 +1,9 @@
 package ninja.meter.rover;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class RoverControlTest {
 
@@ -10,10 +11,10 @@ public class RoverControlTest {
     public void emptyInputSequence_NoMovement() {
         IGame game = new Game(null, 0, 0, "north");
 
-        IGame executedGame = RoverControl.execute(game, "");
+        IGame executedGame = RoverControl.control(game, "");
 
-        assertEquals(game.getRoverX(), executedGame.getRoverX());
-        assertEquals(game.getRoverY(), executedGame.getRoverY());
-        assertEquals(game.getRoverDirection(), executedGame.getRoverDirection());
+        assertThat(game.getRoverX()).isEqualTo(executedGame.getRoverX());
+        assertThat(game.getRoverY()).isEqualTo(executedGame.getRoverY());
+        assertThat(game.getRoverDirection()).isEqualTo(executedGame.getRoverDirection());
     }
 }
